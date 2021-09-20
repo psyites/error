@@ -29,8 +29,20 @@
   </div>
   
   <center>
-  <h1>404 Not Found</h1>
-  <p>The requested page couldn't be found. Make sure: <br><br>- You typed it right?</br>- The link is still valid?</p>
+  <h1>An error has happened.</h1>
+  <p>Make sure: <br><br>- You typed it right?</br>- The link is still valid?</p>
+  <p id="errorcode">Error code: Unknown</p>
   </center>
 </body>
+
+<script>
+  const queryString = window.location.search;
+  console.log(queryString);
+  const urlParams = new URLSearchParams(queryString);
+  var error =  urlParams.get('error');
+  if (error != null)
+  {
+  document.getElementById('errorcode').innerHTML = "Error code: " + error;
+  }
+</script>
 </html>
